@@ -4,11 +4,15 @@ import java.util.*
 
 fun main() {
     var scanner = Scanner(System.`in`)
-    println("Please enter number of tickets:")
-    var ticket = scanner.nextInt()
-    println("How many round-trip tickets:")
-    var returnTicket = scanner.nextInt()
-    TicketsCalculatorKotlin(ticket, returnTicket).print()
+    while (true) {
+        println("Please enter number of tickets:")
+        var ticket = scanner.nextInt()
+        if (ticket == -1) break
+        println("How many round-trip tickets:")
+        var returnTicket = scanner.nextInt()
+        if (returnTicket == -1) break
+        TicketsCalculatorKotlin(ticket, returnTicket).print()
+    }
 }
 
 class TicketsCalculatorKotlin(var ticket: Int, var returnTicket: Int) {
@@ -22,7 +26,7 @@ class TicketsCalculatorKotlin(var ticket: Int, var returnTicket: Int) {
         print(
             "(kt)Total tickts: $ticket\n" +
                     "(kt)Roun-trip: $returnTicket\n" +
-                    "(kt)Total: ${total.toInt()}"
+                    "(kt)Total: ${total.toInt()}\n"
         )
     }
 }
